@@ -21,7 +21,7 @@ class ChatScreen extends StatelessWidget {
                 'https://ih1.redbubble.net/image.3127807260.4963/flat,128x128,075,t.jpg'),
           ),
         ),
-        title: const Text('Usuario 1'),
+        title: const Text('Urabe Mikoto'),
         centerTitle: false,
       ),
       body: _ChatView(),
@@ -45,7 +45,9 @@ class _ChatView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final message = chatProvider.messages[index];
                     return (message.fromWho == FromWho.user)
-                        ? const UserMessageBubble()
+                        ? UserMessageBubble(
+                            message: message,
+                          )
                         : MyMessageBubble(
                             message: message.message,
                           );
